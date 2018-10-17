@@ -4,7 +4,14 @@
 }
 
 @define-mixin block-init-size {
-	width: $tablet;
 	height: 100%;
 	margin: auto;
+	
+	@mixin --cm-from-desktop {
+	    width: $tablet;
+	}
+
+	@mixin --cm-to-desktop {
+	    width: $big-mobile;
+	}
 }

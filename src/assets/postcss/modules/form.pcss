@@ -12,10 +12,10 @@
 		
 		font-size: 15px;
 		line-height: 25px;
-		text-decoration: underline;
 		text-transform: uppercase;
 			
 		&.m--white {
+			text-decoration: underline;
 			border: 1px solid $white;
 			color: $white;
 			
@@ -28,6 +28,23 @@
 					height: 13px;
 					margin-left: 10px;
 					background: url("/public/i/icon/dl_icon.png");
+				}
+			}
+		}
+
+		&.m--green {
+			border: 1px solid $green;
+			color: $green;
+			
+			span {
+				@mixin display-flex row, nowrap, center, center;
+				
+				&:after {
+					content: '';
+					width: 16px;
+					height: 13px;
+					margin-left: 10px;
+					background: url("/public/i/icon/icon.png");
 				}
 			}
 		}
