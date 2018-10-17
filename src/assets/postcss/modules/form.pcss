@@ -1,7 +1,25 @@
 .form {
-	&-block {
-		&__button {
-			
+	position: relative;
+	
+	&__block {
+		&-button {
+			&.m--subscription {
+				@mixin display-flex row, nowrap, flex-start, center;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				height: 100%;
+				background: url("/public/i/icon/message_blue.png");
+				background-repeat: no-repeat;
+				background-position: center center;
+				
+				&:before {
+					content: "";
+					width: 1px;
+					background: $gray;
+					height: 20px;
+				}
+			}
 		}
 	}
 
@@ -15,6 +33,15 @@
 			letter-spacing: 0.4px;
 			font-family: $Roboto-Medium;
 			color: $black-heading;
+		}
+	}
+
+	&__input {
+		&-subscription {
+			width: 217px;
+			height: 43px;
+			padding-left: 20px;
+			border-radius: 15px;
 		}
 	}
 
@@ -72,7 +99,10 @@
 		}
 
 		&.m--red {
+			z-index: $z-index-level-2;
+			position: relative;
 			border: 1px solid $red;
+			background: $white;
 			color: $red;
 			
 			span {
@@ -86,6 +116,11 @@
 					background: url("/public/i/icon/dribbble_icon.png");
 				}
 			}
+		}
+
+		&.m--subscription {
+			width: 40px;
+			height: 100%;
 		}
 
 	}
