@@ -1,0 +1,92 @@
+.third {
+	$height-information: 326px;
+
+	@mixin all-size-max;
+	background: $white;
+	
+	&__section {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		height: calc(100% - $height-information);
+	}
+	
+	&__block {
+		@mixin block-init-size;
+	}
+
+	&__content {
+		@mixin all-size-max;
+		@mixin display-flex column, nowrap, center, flex-end;
+		
+		&-block {
+			width: 386px;
+		}
+	}
+
+	&__heading {
+		font-size: 40px;
+		line-height: 25px;
+		font-family: $Roboto-Light;
+		color: $black-heading;
+	}
+
+	&__text {
+		margin-top: 30px;
+			color: $gray-text;
+		
+		&.m--bold {
+			margin-top: 40px;
+			font-family: $Roboto-Medium;
+			color: $black-text;
+		}
+	}
+
+	&__button {
+		margin-top: 60px;
+	}
+
+	&__information {
+		width: 100%;
+		height: 326px;
+		background: url("/public/i/image/bg.jpg");
+		
+		&-content {
+			@mixin block-init-size;
+			@mixin display-flex column, nowrap, center, center;
+		}
+
+		&-heading {
+			font-size: 40px;
+			line-height: 25px;
+			color: $white;
+		}
+
+		&-button {
+			margin-top: 40px;
+		}
+	}
+
+	&__image {
+		position: absolute;
+		width: 838px;
+		height: 428px;
+		background-image: url("/public/i/image/devices.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	@mixin --cm-from-desktop {
+	   	&__image {
+			left: -110px;
+			bottom: -90px;
+	   	}
+	}
+
+	@mixin --cm-to-desktop {
+	   	&__image {
+			left: -220px;
+			bottom: -60px;
+	   	}
+	}
+}
