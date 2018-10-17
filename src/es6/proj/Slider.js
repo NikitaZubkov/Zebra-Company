@@ -7,6 +7,12 @@ var opt = {
 	return: '.js-return' 
 };
 
+var swiperObj;
+
+function SliderTo (index) {
+	swiperObj.slideTo( index );
+};
+
 function SliderInit () {
 	$(document).ready(function () {
 			// Инициализация слайдера
@@ -17,6 +23,8 @@ function SliderInit () {
 	    	keyboard: true,
 	    	simulateTouch: false
 	  	});
+
+	  	swiperObj = swiper;
 
 	  		// Меняем цвет гамбургера исходя из текущего слайдера
 		swiper.on('slideChange', function (e) {
@@ -31,5 +39,6 @@ function SliderInit () {
 };
 
 export { 
-	SliderInit
+	SliderInit,
+	SliderTo
 };

@@ -1,17 +1,25 @@
 'use strict';
 
+import { SliderTo } from "./Slider.js"
+
 var opt = {
 	hamburger: '.js-hamburger',
 	menu: '.js-menu',
+	close: '.js-close',
+	item: '.js-item',
+
 	white: "m--white",
 	red: "m--red",
 	blue: "m--blue",
 	black: "m--black",
+
 	active: "is-active"
 };
 
 var $hamburger = $(opt.hamburger),
-	$menu = $(opt.menu);
+	$menu = $(opt.menu),
+	$close = $(opt.close),
+	$item = $(opt.item);
 
 function _resetClassHamburger () {
 	$hamburger.removeClass(opt.white);
@@ -39,9 +47,16 @@ function ChangeHamburger (index) {
 	}
 };
 
+function _closeMenu () {
+	var $obj = $(opt.hamburger);
+
+	$menu.removeClass(opt.active);
+	$obj.data("open", 0);
+}
+
 function InitHeader () {
 		// Открытие/закрытие меню
-	$(opt.hamburger).click(function() {
+	$hamburger.click(function() {
 	    var $obj = $(this),
 	    	openStatus = $obj.data("open");
 
@@ -52,6 +67,20 @@ function InitHeader () {
 	    	$menu.addClass(opt.active);
 	    	$obj.data("open", 1);
 	    }
+	});
+
+		// Закрытие меню
+	$close.click(function() {
+	    _closeMenu();
+	});
+
+		// Переход на определённый пункт меню
+	$item.click(function() {
+	    var $obj = $(this),
+	    	index = $obj.data("index");
+
+	    _closeMenu();
+    	SliderTo(index)
 	});
 };
 

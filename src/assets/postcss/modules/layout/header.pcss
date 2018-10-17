@@ -70,6 +70,7 @@
 	}
 
 	&__menu {
+		@mixin display-flex row, nowrap, space-between;
 		z-index: $z-index-level-1;
 		position: absolute;
 		top: 0;
@@ -78,11 +79,30 @@
 		height: 100%;
 		transform: translateX(-100%);
 		will-change: transform;
-		background: blue;
 		transition: transform 0.4s;
+		background: $white;
 		
 		&.is-active {
 			transform: translateX(0%);
+		}
+
+		&-list {
+			padding: 40px;
+		}
+
+		&-item {
+			margin: 0px 0px 20px 40px;
+			font-size: 18px;
+    		text-decoration: underline;
+    		cursor: pointer;
+			color: $black;
+		}
+
+		&-close {
+			padding: 40px;
+			font-size: 24px;
+			color: $black;
+			cursor: pointer;
 		}
 	}
 }
