@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.proj = undefined;\n\nvar _Slider = __webpack_require__(/*! ./proj/Slider.js */ \"./src/es6/proj/Slider.js\");\n\nfunction proj() {};\n\nproj.prototype.SliderInit = _Slider.SliderInit;\n\nexports.proj = proj;\n\n//# sourceURL=webpack:///./src/es6/bundle.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.proj = undefined;\n\nvar _Slider = __webpack_require__(/*! ./proj/Slider.js */ \"./src/es6/proj/Slider.js\");\n\nvar _Header = __webpack_require__(/*! ./proj/Header.js */ \"./src/es6/proj/Header.js\");\n\nfunction proj() {};\n\nproj.prototype.SliderInit = _Slider.SliderInit;\nproj.prototype.InitHeader = _Header.InitHeader;\n\nexports.proj = proj;\n\n//# sourceURL=webpack:///./src/es6/bundle.js?");
 
 /***/ }),
 
@@ -106,7 +106,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _bundle = __webpack_require__(/*! ./bundle */ \"./src/es6/bundle.js\");\n\nvar Proj = new _bundle.proj();\n\nProj.SliderInit();\n\n//# sourceURL=webpack:///./src/es6/main.js?");
+eval("\n\nvar _bundle = __webpack_require__(/*! ./bundle */ \"./src/es6/bundle.js\");\n\nvar Proj = new _bundle.proj();\n\nProj.SliderInit();\nProj.InitHeader();\n\n//# sourceURL=webpack:///./src/es6/main.js?");
+
+/***/ }),
+
+/***/ "./src/es6/proj/Header.js":
+/*!********************************!*\
+  !*** ./src/es6/proj/Header.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar opt = {\n\thamburger: '.js-hamburger',\n\tmenu: '.js-menu',\n\twhite: \"m--white\",\n\tred: \"m--red\",\n\tblue: \"m--blue\",\n\tblack: \"m--black\",\n\tactive: \"is-active\"\n};\n\nvar $hamburger = $(opt.hamburger),\n    $menu = $(opt.menu);\n\nfunction _resetClassHamburger() {\n\t$hamburger.removeClass(opt.white);\n\t$hamburger.removeClass(opt.red);\n\t$hamburger.removeClass(opt.blue);\n\t$hamburger.removeClass(opt.black);\n};\n\nfunction ChangeHamburger(index) {\n\t_resetClassHamburger();\n\n\tswitch (index) {\n\t\tcase 0:\n\t\t\t$hamburger.addClass(opt.white);\n\t\t\tbreak;\n\t\tcase 1:\n\t\t\t$hamburger.addClass(opt.red);\n\t\t\tbreak;\n\t\tcase 2:\n\t\t\t$hamburger.addClass(opt.blue);\n\t\t\tbreak;\n\t\tcase 3:\n\t\t\t$hamburger.addClass(opt.black);\n\t\t\tbreak;\n\t}\n};\n\nfunction InitHeader() {\n\t// Открытие/закрытие меню\n\t$(opt.hamburger).click(function () {\n\t\tvar $obj = $(this),\n\t\t    openStatus = $obj.data(\"open\");\n\n\t\tif (openStatus) {\n\t\t\t$menu.removeClass(opt.active);\n\t\t\t$obj.data(\"open\", 0);\n\t\t} else {\n\t\t\t$menu.addClass(opt.active);\n\t\t\t$obj.data(\"open\", 1);\n\t\t}\n\t});\n};\n\nexports.InitHeader = InitHeader;\nexports.ChangeHamburger = ChangeHamburger;\n\n//# sourceURL=webpack:///./src/es6/proj/Header.js?");
 
 /***/ }),
 
@@ -118,7 +130,7 @@ eval("\n\nvar _bundle = __webpack_require__(/*! ./bundle */ \"./src/es6/bundle.j
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar opt = {\n\tcontainer: '.home-page__container'\n};\n\nfunction SliderInit() {\n\t$(document).ready(function () {\n\t\tvar swiper = new Swiper(opt.container, {\n\t\t\tdirection: 'vertical',\n\t\t\tslidesPerView: 1,\n\t\t\teffect: 'fade'\n\t\t});\n\t});\n};\n\nexports.SliderInit = SliderInit;\n\n//# sourceURL=webpack:///./src/es6/proj/Slider.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.SliderInit = undefined;\n\nvar _Header = __webpack_require__(/*! ./Header.js */ \"./src/es6/proj/Header.js\");\n\nvar opt = {\n\tcontainer: '.home-page__container',\n\treturn: '.js-return'\n};\n\nfunction SliderInit() {\n\t$(document).ready(function () {\n\t\t// Инициализация слайдера\n\t\tvar swiper = new Swiper(opt.container, {\n\t\t\tdirection: 'vertical',\n\t\t\tslidesPerView: 1,\n\t\t\teffect: 'fade',\n\t\t\tkeyboard: true,\n\t\t\tsimulateTouch: false\n\t\t});\n\n\t\t// Меняем цвет гамбургера исходя из текущего слайдера\n\t\tswiper.on('slideChange', function (e) {\n\t\t\t(0, _Header.ChangeHamburger)(this.activeIndex);\n\t\t});\n\n\t\t// Возврат на первый слайд при клике на блок возврата в footer\n\t\t$(opt.return).click(function () {\n\t\t\tswiper.slideTo(0);\n\t\t});\n\t});\n};\n\nexports.SliderInit = SliderInit;\n\n//# sourceURL=webpack:///./src/es6/proj/Slider.js?");
 
 /***/ })
 

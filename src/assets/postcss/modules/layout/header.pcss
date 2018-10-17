@@ -39,16 +39,50 @@
 	&__hamburger {
 		@mixin display-flex column, nowrap, center;
 		width: 30px;
+		cursor: pointer;
+		
+		&.m--white &-item {
+			background: $white;
+		}
+
+		&.m--red &-item {
+			background: $red;
+		}
+
+		&.m--blue &-item {
+			background: $blue;
+		}
+
+		&.m--black &-item {
+			background: $black;
+		}
 		
 		&-item {
 			width: 100%;
 			height: 4px;
-			margin-bottom: 1px;
-			background: white;
+			margin-bottom: 2px;
+			transition: background 0.4s;
 			
 			&:last-child {
 				margin-bottom: 0px;
 			}
+		}
+	}
+
+	&__menu {
+		z-index: $z-index-level-1;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateX(-100%);
+		will-change: transform;
+		background: blue;
+		transition: transform 0.4s;
+		
+		&.is-active {
+			transform: translateX(0%);
 		}
 	}
 }

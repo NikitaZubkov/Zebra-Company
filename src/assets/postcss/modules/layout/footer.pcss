@@ -1,0 +1,40 @@
+.footer {
+	width: 100%;
+	height: $footer-height;
+	background: $white;
+	
+	&__block {
+		@mixin display-flex row, nowrap, center, center;
+		@mixin block-init-size;
+		position: relative;
+	}
+
+	&__text {
+		font-size: 12px;
+		line-height: 25px;
+		letter-spacing: 0.3px;
+		color: $black-heading;
+		
+		span {
+			color: $blue;
+		}
+	}
+
+	&__return {
+		@mixin display-flex row, nowrap, center, center;
+		position: absolute;
+		top: 30px;
+		right: 5%;
+		width: 40px;
+		height: 40px;
+		background: $gray;
+		
+		&:before {
+			content: '';
+			width: 12px;
+			height: 8px;
+			background: url("/public/i/icon/to_top_icon.png");
+			background-position: center center;
+		}
+	}
+}
