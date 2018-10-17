@@ -1,3 +1,14 @@
 .home-page {
+	@mixin all-size-max;
+	
+	&__container {
+		@mixin all-size-max;
+	}
 
+	&__slider {
+		@mixin display-flex row, nowrap, center, center;
+		@mixin all-size-max;
+		font-size: 24px;
+		color: $white;
+	}
 }

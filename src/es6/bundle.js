@@ -1,11 +1,10 @@
 "use strict";
 
-import { Test, TestFunction } from "./proj/test.js"
+import { SliderInit } from "./proj/Slider.js"
 
 function proj(){};
 
-proj.prototype.Test = Test;
-proj.prototype.TestFunction = TestFunction;
+proj.prototype.SliderInit = SliderInit;
 
 export {
 	proj

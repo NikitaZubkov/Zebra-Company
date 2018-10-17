@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.proj = undefined;\n\nvar _test = __webpack_require__(/*! ./proj/test.js */ \"./src/es6/proj/test.js\");\n\nfunction proj() {};\n\nproj.prototype.Test = _test.Test;\nproj.prototype.TestFunction = _test.TestFunction;\n\nexports.proj = proj;\n\n//# sourceURL=webpack:///./src/es6/bundle.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.proj = undefined;\n\nvar _Slider = __webpack_require__(/*! ./proj/Slider.js */ \"./src/es6/proj/Slider.js\");\n\nfunction proj() {};\n\nproj.prototype.SliderInit = _Slider.SliderInit;\n\nexports.proj = proj;\n\n//# sourceURL=webpack:///./src/es6/bundle.js?");
 
 /***/ }),
 
@@ -106,19 +106,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _bundle = __webpack_require__(/*! ./bundle */ \"./src/es6/bundle.js\");\n\nvar Proj = new _bundle.proj();\n\nProj.Test();\nProj.TestFunction();\n\n//# sourceURL=webpack:///./src/es6/main.js?");
+eval("\n\nvar _bundle = __webpack_require__(/*! ./bundle */ \"./src/es6/bundle.js\");\n\nvar Proj = new _bundle.proj();\n\nProj.SliderInit();\n\n//# sourceURL=webpack:///./src/es6/main.js?");
 
 /***/ }),
 
-/***/ "./src/es6/proj/test.js":
-/*!******************************!*\
-  !*** ./src/es6/proj/test.js ***!
-  \******************************/
+/***/ "./src/es6/proj/Slider.js":
+/*!********************************!*\
+  !*** ./src/es6/proj/Slider.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nfunction Test() {\n\tconsole.log(12);\n};\n\nfunction TestFunction() {\n\tconsole.log('\\u0442\\u0435\\u0441\\u0442\\u043E\\u0432\\u0430\\u044F \\u0441\\u0442\\u0440\\u043E\\u043A\\u0430');\n};\n\nexports.Test = Test;\nexports.TestFunction = TestFunction;\n\n//# sourceURL=webpack:///./src/es6/proj/test.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar opt = {\n\tcontainer: '.home-page__container'\n};\n\nfunction SliderInit() {\n\t$(document).ready(function () {\n\t\tvar swiper = new Swiper(opt.container, {\n\t\t\tdirection: 'vertical',\n\t\t\tslidesPerView: 1,\n\t\t\teffect: 'fade'\n\t\t});\n\t});\n};\n\nexports.SliderInit = SliderInit;\n\n//# sourceURL=webpack:///./src/es6/proj/Slider.js?");
 
 /***/ })
 

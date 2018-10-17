@@ -89,7 +89,7 @@ const statsLog      = {
     // Определяем порядок сборки JS файлов
 const JS = [
     './src/lib/jquery-3.3.1.js',
-    './src/lib/slick.js',
+    './src/lib/swiper.js',
     './src/bundle.js'
 ];
 
