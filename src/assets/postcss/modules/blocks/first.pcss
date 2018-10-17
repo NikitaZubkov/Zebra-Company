@@ -1,0 +1,52 @@
+.first {
+	@mixin all-size-max;
+	background: url("/public/i/image/header_bg.jpg");
+	
+	&__block {
+		@mixin block-init-size;
+	}
+
+	&__content {
+		@mixin all-size-max;
+		@mixin display-flex column, nowrap, center, flex-end;
+		overflow: hidden;
+		position: relative;
+
+	}
+
+	&__heading {
+		font-size: 70px;
+		font-family: $Black-Jack;
+		line-height: 25px;
+		color: $white;
+	}
+
+	&__text {
+		margin-top: 70px;
+		font-size: 35px;
+		line-height: 25px;
+		font-family: $Roboto-Light;
+		color: $white;
+		
+		span {
+			font-family: $Roboto-Medium;
+			font-weight: 500;
+			font-style: italic;
+		}
+	}
+
+	&__button {
+		margin-top: 70px;
+	}
+
+	&__image {
+		position: absolute;
+		left: 0;
+		bottom: -241px;
+		width: 228px;
+		height: 482px;
+		background-image: url("/public/i/image/iphone5.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
